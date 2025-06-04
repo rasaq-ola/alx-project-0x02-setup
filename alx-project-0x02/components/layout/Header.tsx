@@ -8,7 +8,7 @@ const Header = () => {
             <h1 className="text-2xl font-bold">Placeholder</h1>
             <nav>
             <ul className="flex space-x-4">
-                <li><Link href="/" className="hover:underline">Home</Link></li>
+                <li><Link href="/home" className="hover:underline">Home</Link></li>
                 <li><Link href="/about" className="hover:underline">About</Link></li>
                 <li><Link href="/contact" className="hover:underline">Contact</Link></li>
             </ul>
@@ -17,3 +17,5 @@ const Header = () => {
         </header>
     );
     }
+
+    export default Header;
