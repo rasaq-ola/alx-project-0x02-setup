@@ -1,21 +1,44 @@
-import React from 'react';
-import Header from '../components/layout/Header'
-import Card from '@/components/common/Card'
+import React, { useState } from 'react';
+import Header from '../components/layout/Header';
+import Card from '../components/common/Card';
+import PostModal from '../components/common/PostModal';
 
-const Home = () => {
-    return (
-	    <div>
+const Home: React.FC = () => {
+  const [posts, setPosts] = useState([
+    { title: 'Sample Post 1', content: 'This is a sample post content.' },
+    { title: 'Sample Post 2', content: 'Another example of a card.' },
+  ]);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleAddPost = (title: string, content: string) => {
+    setPosts([{ title, content }, ...posts]);
+  };
+
+  return (
+    <div>
       <Header />
       <main className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Welcome to the Home Page</h1>
-        <p className="mb-6">This is the home page of our application.</p>
+        <button
+          onClick={() => setShowModal(true)}
+          className="mb-4 px-4 py-2 bg-green-600 text-white rounded"
+        >
+          Add New Post
+        </button>
+
+        {showModal && (
+          <PostModal onClose={() => setShowModal(false)} onSubmit={handleAddPost} />
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card title="Card One" content="This is the first card." />
-          <Card title="Card Two" content="This is the second card with different content." />
-          <Card title="Card Three" content="This card shows how reusable components work." />
+          {posts.map((post, index) => (
+            <Card key={index} title={post.title} content={post.content} />
+          ))}
         </div>
       </main>
     </div>
-    );
-    }
+  );
+};
+
 export default Home;
+
