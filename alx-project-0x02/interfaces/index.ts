@@ -14,5 +14,3 @@ export interface ButtonProps {
   shape: 'rounded-sm' | 'rounded-md' | 'rounded-full';
   onClick?: () => void;
 }
-
-
