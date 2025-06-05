@@ -7,6 +7,10 @@ const About = () => {
     <Header/>
       <h1>About Page</h1>
       <p>This is the about page of our application.</p>
+      <Button label="Small Button" size="small" shape="rounded-sm" />
+      <Button label="Medium Button" size="medium" shape="rounded-md" />
+      <Button label="Large Button" size="large" shape="rounded-full" />
+    </div>
     </div>
   );
 }
